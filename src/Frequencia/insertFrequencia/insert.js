@@ -90,7 +90,7 @@ class Frequencia extends Component {
       }
     }).then(data => {
       this.setState({
-        saveFeedBack: data.ok ? 'Os dados foram atualizados com sucesso!' : 'Erro ao atualizar'
+        saveFeedBack: data.ok ? 'Os dados foram salvos com sucesso!' : 'Erro ao salvar'
       })
 
       return data.json()
@@ -126,6 +126,7 @@ class Frequencia extends Component {
  
     let alunosModificados = alunosDaTurma.map((current) =>
     ({
+        data: this.state.data,
         turma: current.turma._id,
         aluno: current.aluno._id,
         nomeAluno: current.aluno.nome,

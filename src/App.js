@@ -17,7 +17,7 @@ class App extends Component {
       <BrowserRouter history={history}>
       
               <Switch>
-             <Route exact path="/" component={Login} /> 
+             <Route exact path="/" component={Profile} /> 
             <Route exact path="/register" component={Register} />
             <Route path="/" component={Profile} />
             </Switch>
