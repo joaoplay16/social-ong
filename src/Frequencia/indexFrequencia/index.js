@@ -21,6 +21,7 @@ class IndexTurmaAluno extends Component {
     async loadFrequencia() {
         const response = await api.get(`/Frequencia`); //buscar dos dados no banco
         const { docs: frequencia } = response.data
+        console.log("LOAD F", frequencia);
         this.setState({
             Frequencia: frequencia
         })

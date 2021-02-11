@@ -24,7 +24,7 @@ export default class indexDespesa extends Component {
         const { Despesa } = this.state; // definir variaveis em seu estado atual, carregadas com a lista
         return (
             <div>
-                <Data row={filtro(Despesa)} />
+                {<Data row={filtro(Despesa)} />}
             </div>
         );
     }
@@ -38,9 +38,6 @@ function filtro (props) {
         t[i]["dataa"] = <Moment utc='GMT-3' format="DD/MM/YYYY" date={props[i]["data"]}></Moment>
         t[i]["valorr"] = props[i]["valor"] + "  R$ ";
     }
-
-
-
     return t;
 }
 
