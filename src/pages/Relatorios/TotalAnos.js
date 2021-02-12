@@ -2,6 +2,7 @@ import React from 'react';
 import {Pie} from 'react-chartjs-2';
 import axios from 'axios';
 import './graficos.css'
+import api from '../../service/service'
 
 export default class App extends React.Component {
 
@@ -17,16 +18,16 @@ export default class App extends React.Component {
  }
 
  loadPadrinho = async () => {
-     const respons = await axios.get('http://localhost:3003/sistema/ListaAnos1'); //buscar dos dados no banco
+     const respons = await api.get('/ListaAnos1'); //buscar dos dados no banco
      this.setState({TotalAnos: respons.data }); // setando o estado de Pu.At. com informações da lista do banco 
 
-     const response = await axios.get('http://localhost:3003/sistema/ListaAnos2'); //buscar dos dados no banco
+     const response = await api.get('/ListaAnos2'); //buscar dos dados no banco
      this.setState({TotalAnos1: response.data }); // setando o estado de Pu.At. com informações da lista do banco 
 
-     const respon = await axios.get('http://localhost:3003/sistema/ListaAnos3'); //buscar dos dados no banco
+     const respon = await api.get('/ListaAnos3'); //buscar dos dados no banco
      this.setState({TotalAnos2: respon.data }); // setando o estado de Pu.At. com informações da lista do banco 
 
-     const respo = await axios.get('http://localhost:3003/sistema/ListaPublicoMasculinototal'); //buscar dos dados no banco
+     const respo = await api.get('/ListaPublicoMasculinototal'); //buscar dos dados no banco
      this.setState({TotalAnostotal: respo.data }); // setando o estado de Pu.At. com informações da lista do banco 
     
     }

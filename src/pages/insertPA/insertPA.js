@@ -115,6 +115,7 @@ class CriaPA extends Component {
                                             className="form-control config-select"
                                             id="religiao"
                                             name="religiao"
+                                            required
                                             value={this.state.PublicoAtendido.religiao}
                                             onChange={this.handleInputChange} >
                                             <option></option>
@@ -159,6 +160,7 @@ class CriaPA extends Component {
                                             type="number"
                                             id="peso"
                                             name="peso"
+                                            required
                                             value={this.state.PublicoAtendido.peso}
                                             onChange={this.handleInputChange} />
                                     </div>
@@ -187,6 +189,7 @@ class CriaPA extends Component {
                                             type="number"
                                             id="altura"
                                             name="altura"
+                                            required
                                             value={this.state.PublicoAtendido.altura}
                                             onChange={this.handleInputChange}
                                         />
@@ -248,7 +251,7 @@ class CriaPA extends Component {
                                             type="text"
                                             id="anoAnterior"
                                             name="anoAnterior"
-                                            
+                                            required
                                             value={this.state.PublicoAtendido.anoAnterior}
                                             onChange={this.handleInputChange}>
                                             <option></option>
@@ -303,6 +306,7 @@ class CriaPA extends Component {
                                             type="text"
                                             id="moraComQuem"
                                             name="moraComQuem"
+                                            required
                                             value={this.state.PublicoAtendido.moraComQuem}
                                             onChange={this.handleInputChange}
                                         />
@@ -329,6 +333,7 @@ class CriaPA extends Component {
                                             type="Number"
                                             id="nis"
                                             name="nis"
+                                            required
                                             value={this.state.PublicoAtendido.nis}
                                             onChange={this.handleInputChange} />
                                     </div>
@@ -339,6 +344,7 @@ class CriaPA extends Component {
                                             type="text"
                                             id="funcao"
                                             name="funcao"
+                                            required
                                             value={this.state.PublicoAtendido.funcao}
                                             onChange={this.handleInputChange} />
                                     </div>
@@ -351,7 +357,7 @@ class CriaPA extends Component {
                                             type="text"
                                             id="escolaridade"
                                             name="escolaridade"
-
+                                            required
                                             value={this.state.PublicoAtendido.escolaridade}
                                             onChange={this.handleInputChange} >
                                             <option></option>
@@ -372,7 +378,7 @@ class CriaPA extends Component {
                                             type="text"
                                             id="profissao"
                                             name="profissao"
-
+                                            required
                                             value={this.state.PublicoAtendido.profissao}
                                             onChange={this.handleInputChange}
                                         />
@@ -384,7 +390,7 @@ class CriaPA extends Component {
                                             type="Number"
                                             id="rendaFamiliar"
                                             name="rendaFamiliar"
-
+                                            required
                                             value={this.state.PublicoAtendido.rendaFamiliar}
                                             onChange={this.handleInputChange} />
                                     </div>
@@ -395,7 +401,7 @@ class CriaPA extends Component {
                                             type="text"
                                             id="contribuinte"
                                             name="contribuinte"
-
+                                            required
                                             value={this.state.PublicoAtendido.contribuinte}
                                             onChange={this.handleInputChange} />
                                     </div>
@@ -408,7 +414,7 @@ class CriaPA extends Component {
                                             type="text"
                                             id="observacao"
                                             name="observacao"
-
+                                            required
                                             value={this.state.PublicoAtendido.observacao}
                                             onChange={this.handleInputChange} />
                                     </div>
