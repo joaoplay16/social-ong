@@ -181,6 +181,8 @@ class UpdateTurma extends Component {
     const { docs: alunosDaTurma } = response.data
 
     //pegando Turma&Aluno e retornando no formato chave valor
+    if (alunosDaTurma.length > 0) {
+
     this.setState({
       AlunosDaTurma: alunosDaTurma.reduce((accumulator, current) =>
         Object.assign(/*target*/accumulator,
@@ -192,6 +194,7 @@ class UpdateTurma extends Component {
           })
         , {})
     })
+  }
   }
 
   async loadPublicoAtendido() {

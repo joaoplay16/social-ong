@@ -83,7 +83,7 @@ class Frequencia extends Component {
     const alunosDaTurma = this.state.Frequencia
 
     fetch(`${API_ADDRESS}/Frequencia`, {
-      method: "post",
+      method: "POST",
       body: JSON.stringify(alunosDaTurma),
       headers: {
         "Content-Type": "application/json"
@@ -92,10 +92,10 @@ class Frequencia extends Component {
       this.setState({
         saveFeedBack: data.ok ? 'Os dados foram salvos com sucesso!' : 'Erro ao salvar'
       })
-
+      console.log("DADOS",alunosDaTurma);
       return data.json()
     }).then(d => {
-        console.log(d);
+        console.log("Erro ao inserir frequencia",d);
     })
   }
 
