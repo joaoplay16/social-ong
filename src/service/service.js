@@ -4,6 +4,7 @@ const HOST = "http://api-projetovamos-com.umbler.net"
   // process.env.REACT_APP_NODE_ENV == "production"
   //   ? "http://api-projetovamos-com.umbler.net"
   //   : `http://localhost:${PORT}`
+
 const PATH = "sistema"
 export const API_ADDRESS = `${HOST}/${PATH}`
 export const STATIC_SERVER_ADDRESS = `${HOST}/`
