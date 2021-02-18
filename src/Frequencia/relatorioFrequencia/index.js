@@ -1,43 +1,42 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import api from "../../service/service" //import url base
+import createPreview, {downloadPdf, setPdfData} from './templatePdf'
 
 import Tabela from "./tabela"
 
-class IndexTurmaAluno extends Component {
+class RelatorioFrequencia extends Component {
   constructor() {
     super()
     this.state = {
       Frequencia: [],
     }
   }
+  async componentDidMount() {
+    const response = await api.get("/Frequencia")
+    setPdfData(response.data.docs)
 
-  componentDidMount() {
-    this.loadFrequencia()
+    createPreview()
   }
 
-  async loadFrequencia() {
-    const response = await api.get(`/Frequencia`) //buscar dos dados no banco
-    const { docs: frequencia } = response.data
-    console.log("LOAD F", frequencia)
-    this.setState({
-      Frequencia: frequencia,
-    })
+  handleClick() {
+    downloadPdf()
   }
 
   render() {
     return (
-      <div>
-        <Link to="/profile/educacao/cadastro-frequencia">
-          <button className="btn-lg btn-outline-primary my-4">
-            Nova frequencia
-          </button>
-        </Link>
-        <Link to="/profile/educacao/relatorio-frequencia">
-          <button className="btn-lg btn-outline-info my-4">Relatorio</button>
-        </Link>
-        <Tabela rows={filtro(this.state.Frequencia)} />
-      </div>
+      <scroll>
+        <div className="container">
+          <h1>Relatorio</h1>
+          <button onClick={this.handleClick}>Download</button>
+          <iframe
+            src={this.state.urlData}
+            frameborder="0"
+            width="100%"
+            height="700px"
+          />
+        </div>
+      </scroll>
     )
   }
 }
@@ -68,4 +67,4 @@ function filtro(rows) {
   return t
 }
 
-export default IndexTurmaAluno
+export default RelatorioFrequencia

@@ -10,6 +10,7 @@ import UpdateTurmaAluno from '../TurmaAluno/updateTurmaAluno'
 import IndexFrequencia from '../Frequencia/indexFrequencia'
 import DetalhesFrequencia from '../Frequencia/detailFrequencia'
 import CadastroFrequencia from '../Frequencia/insertFrequencia'
+import RelatorioFrequencia from '../Frequencia/relatorioFrequencia'
 import InsertFrequencia from '../Frequencia/insertFrequencia/insert'
 import UpdateFrequencia from '../Frequencia/updateFrequencia'
 
@@ -29,6 +30,7 @@ const Index = () => (
                     <Route path='/profile/educacao/detalhes-frequencia' component={DetalhesFrequencia} />
                     <Route path='/profile/educacao/frequencia' component={IndexFrequencia} />
                     <Route exact path='/profile/educacao/cadastro-frequencia' component={CadastroFrequencia} />
+                    <Route path='/profile/educacao/relatorio-frequencia' component={RelatorioFrequencia} />
                     <Route path='/profile/educacao/cadastro-frequencia/:id' component={InsertFrequencia} />
                     <Route path='/profile/educacao/update-frequencia' component={UpdateFrequencia} />
 
