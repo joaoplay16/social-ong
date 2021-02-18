@@ -11,6 +11,7 @@ import {
 	faHandshake,
 	faDollarSign,
 	faFunnelDollar,
+	faEdit,
 	faBookOpen
 } from '@fortawesome/free-solid-svg-icons'
 import Index from '../pages/index';
@@ -43,7 +44,13 @@ export default class SideBar extends Component {
 											<Link to="/profile/publicoatendido/lista" className="nav-link pl-0"><i class="fa fa-bullseye fa-fw"></i> <h4 class="font-weight-bold">Vamos</h4></Link>
 										</li>
 										<li className="nav-item">
-											<Link to="/profile/publicoatendido/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faChild} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Público atendido</span></Link>
+											<Link to="/profile/publicoatendido/lista" className="nav-link pl-0">
+												<FontAwesomeIcon icon={faChild} className='fa-fw' /> 
+												<span className="text-nowrap font-weight-bolder">Público atendido</span>
+											</Link>
+										</li>
+										<li className="nav-item">
+											<Link to="re" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
 										</li>
 										<li className="nav-item">
 											<Link to="/profile/servidor/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faIdCardAlt} className='fa-fw' /> <span className="font-weight-bolder">Servidor</span></Link>
