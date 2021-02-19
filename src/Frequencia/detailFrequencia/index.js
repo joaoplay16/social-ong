@@ -6,6 +6,7 @@ class DetailFrequencia extends Component {
   constructor() {
     super();
 
+    
     this.state = {
       Turma: {
         nome: ''
