@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../Padrinho/header';
-import Insert from '../Padrinho/insertPadrinho/insertPadrinho';
+import Header from '../planejamento/header';
+import Insert from '../planejamento/cadastro/insertPlanejamento';
 import Lista from '../Padrinho/indexPadrinho/indexPadrinho';
 import Detalhes from '../Padrinho/detailsPadrinho/detailsPadrinho';
 import Editar from '../Padrinho/updatPadrinho/updatPadrinho';
@@ -20,7 +20,9 @@ export default class index extends Component {
 
           <section>
             <Switch>
-              <Route path="" component={Deletar} />
+              <Route path="/profile/planejamento/lista" component={Deletar} />
+              <Route path="/profile/planejamento/cadastro" component={Insert} />
+              <Route path="/profile/planejamento/relatorio" component={Deletar} />
             </Switch>
           </section>
         </Router>

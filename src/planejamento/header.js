@@ -7,13 +7,13 @@ export default class header extends Component {
     return (
       <ul className="nav nav-pills nav-fill ulIdex">
         <li className="nav-item">
-          <Link to="">  <a className="nav-link botIndex" href="#">Lista Planejamento</a></Link>
+          <Link to="/profile/planejamento/lista">  <a className="nav-link botIndex" href="#">Lista Planejamento</a></Link>
         </li>
         <li className="nav-item">
-          <Link to="">  <a className="nav-link botIndex" href="#">Cadastro Planejamento</a></Link>
+          <Link to="/profile/planejamento/cadastro">  <a className="nav-link botIndex" href="#">Cadastro Planejamento</a></Link>
         </li>
         <li className="nav-item">
-          <Link to=""> <a className="nav-link botIndex" href="#">Relatorios</a></Link>
+          <Link to="/profile/planejamento/relatorios"> <a className="nav-link botIndex" href="#">Relatorios</a></Link>
         </li>
       </ul>
     )
