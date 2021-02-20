@@ -21,6 +21,7 @@ import IndexPadrinho from '../Padrinho/index';
 import Despesa from '../Despesa/index';
 import Receita from '../Receita/index';
 import Educacao from '../Educacao/index';
+import Planejamento from '../planejamento/index'
 import './style.css'
 
 
@@ -50,7 +51,7 @@ export default class SideBar extends Component {
 											</Link>
 										</li>
 										<li className="nav-item">
-											<Link to="re" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
+											<Link to="/profile/planejamento" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
 										</li>
 										<li className="nav-item">
 											<Link to="/profile/servidor/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faIdCardAlt} className='fa-fw' /> <span className="font-weight-bolder">Servidor</span></Link>
@@ -85,6 +86,7 @@ export default class SideBar extends Component {
 								<Route path="/profile/padrinho" component={IndexPadrinho} />
 								<Route path="/profile/despesa" component={Despesa} />
 								<Route path="/profile/receita" component={Receita} />
+								<Route path="/profile/planejamento" component={Planejamento} />
 								<Route path="/profile/educacao" component={Educacao} />
 							</Switch>
 						</main>
