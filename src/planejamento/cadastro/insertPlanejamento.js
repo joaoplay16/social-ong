@@ -45,7 +45,7 @@ class CriaPA extends Component {
                                     <div className="form-group col-sm-12">
                                         <label htmlFor="rotina">Rotina:</label>
                                         <textarea
-                                            rows="3"
+                                            rows="4"
                                             className="form-control"
                                             type="text"
                                             id="rotina"
@@ -60,7 +60,7 @@ class CriaPA extends Component {
                                     <div className="form-group col-sm-12">
                                         <label htmlFor="atividade">Atividade:</label>
                                         <textarea
-                                            rows="3"
+                                            rows="4"
                                             className="form-control"
                                             type="text"
                                             id="atividade"
@@ -74,7 +74,7 @@ class CriaPA extends Component {
                                     <div className="form-group col-sm-12">
                                         <label htmlFor="aceitacao">Aceitação:</label>
                                         <textarea
-                                            rows="3"
+                                            rows="4"
                                             className="form-control"
                                             type="text"
                                             id="aceitacao"
@@ -88,7 +88,7 @@ class CriaPA extends Component {
                                     <div className="form-group col-sm-12">
                                         <label htmlFor="observacao">Observação:</label>
                                         <textarea
-                                            rows="3"
+                                            rows="4"
                                             className="form-control"
                                             type="text"
                                             id="observacao"
@@ -139,7 +139,7 @@ class CriaPA extends Component {
 
     //metodo para salvar os dados
     handleSubmit = event => {
-        fetch(`${API_ADDRESS}/Planejamento`, {
+        fetch(`${API_ADDRESS}/planejamento`, {
             method: "post",
             body: JSON.stringify(this.state.planejamento),
             headers: {
