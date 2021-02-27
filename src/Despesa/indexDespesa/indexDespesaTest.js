@@ -7,8 +7,8 @@ import Data from './data';
 export default class indexDespesa extends Component {
 
     state = {
-        Despesa: [], //dados da tabela
-        DespesaInfo: {},  //informações necessarias para paginação e apresentação dos dados
+        Despesa: [], 
+        DespesaInfo: {},  
     };
     componentDidMount () { // metodo executa automatico quando inicia a aplicação
         this.loadDespesa();
