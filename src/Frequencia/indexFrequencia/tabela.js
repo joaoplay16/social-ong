@@ -15,18 +15,6 @@ const DatatablePage = (props) => {
         field: 'turma',
       },
       {
-        label: "Aluno",
-        field: "aluno",
-      },
-      {
-        label: "Presente",
-        field: "presente", 
-      },
-      {
-        label: "Atualizar",
-        field: "atualizar"
-      },
-      {
         label: "Detalhes",
         field: "detalhes"
       },

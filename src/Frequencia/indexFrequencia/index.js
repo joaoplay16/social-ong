@@ -18,7 +18,7 @@ class IndexTurmaAluno extends Component {
 
   async loadFrequencia() {
     const response = await api.get(`/Frequencia`) //buscar dos dados no banco
-    const { docs: frequencia } = response.data
+    const { data: frequencia } = response
     console.log("LOAD F", frequencia)
     this.setState({
       Frequencia: frequencia,
@@ -44,6 +44,8 @@ class IndexTurmaAluno extends Component {
 
 function filtro(rows) {
   let t = rows.map((f) => {
+  console.log("F", f.data)
+
     let updateFrequencia = {
       pathname: `/profile/educacao/update-frequencia`,
       state: {
@@ -57,12 +59,10 @@ function filtro(rows) {
     })
 
     return {
-      atualizar: <Link to={updateFrequencia}> Atualizar</Link>,
       detalhes: <Link to={detailFrequencia}> Detalhes</Link>,
       data: f.data,
-      presente: f.presente ? "sim" : "não",
       turma: f.turma.nome,
-      aluno: f.aluno.nome,
+      idTurma: f.turma._id,
     }
   })
   return t

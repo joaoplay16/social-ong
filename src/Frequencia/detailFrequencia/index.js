@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../service/service';//import url base
-
+import createPreview, {downloadPdf, setPdfData} from './templatePdf'
 
 class DetailFrequencia extends Component {
   constructor() {
@@ -16,43 +16,10 @@ class DetailFrequencia extends Component {
       data: new Date().toLocaleDateString().substr(0, 10)//TODO mudar para props
     }
   }
-  render() {
-    const { saveFeedBack, Frequencia, Turma, data } = this.state;
-    return (
-      <div className='container '>
-        <div className="col-12">
-        <center><h3>Frequência turma "{Turma.nome}" <i>{data}</i></h3></center>
-          {!!saveFeedBack && <div className="alert alert-success" role="alert">
-            <p>{saveFeedBack}</p>
-          </div>
-          }
-        </div>
-        <div className="row">
-          <div className="col-md-4 mr-5">
-            <table className="table">
-              <tbody>
-                <tr>
-                  <th>Nome</th>
-                  <th>presente</th>
-                </tr>
-                {Frequencia.map((frequencia) => (
-                  <tr key={frequencia._id}>
-                    <td>
-                      <b className="text-capitalize">{frequencia.aluno.nome}</b>
-                    </td>
-                    <td className="text-center">
-                      {frequencia.presente ? 
-                      <p className='badge badge-info'>sim</p> :  <p className='badge badge-danger'>não</p> }
-                    </td>
-                  </tr>
-                ))}
 
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    )
+
+  handleClick() {
+    downloadPdf()
   }
 
   componentDidMount() {
@@ -80,12 +47,36 @@ class DetailFrequencia extends Component {
   async loadFrequencia() {
     const { idTurma, data } = this.props.location.state;
     const response = await api.get(`/Frequencia?turma=${idTurma}&data=${data}`);
-    const { docs: frequencia } = response.data
+    const { data: frequencia } = response
 
     this.setState({
       Frequencia: frequencia
     })
+
+    console.log("FRQ", response)
+
+    setPdfData(frequencia)
+    createPreview()
   }
+
+  render() {
+    const { saveFeedBack, Frequencia, Turma, data } = this.state;
+    return (
+      <scroll>
+      <div className="container">
+        <h1>Relatorio</h1>
+        <button onClick={this.handleClick}>Download</button>
+        <iframe
+          frameborder="0"
+          width="100%"
+          height="700px"
+        />
+      </div>
+    </scroll>
+    )
+  }
+
+ 
 }
 
 export default DetailFrequencia;
