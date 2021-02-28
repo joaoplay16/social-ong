@@ -22,11 +22,48 @@ import Despesa from '../Despesa/index';
 import Receita from '../Receita/index';
 import Educacao from '../Educacao/index';
 import Planejamento from '../planejamento/index'
+import jwt_decode from 'jwt-decode';
 import './style.css'
+
+
+
+
 
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 export default class SideBar extends Component {
+	constructor() {
+		super()
+		this.state = {
+		  nivel: Number,
+		}
+	  }
+
+
+	componentDidMount() {
+		const token = localStorage.usertoken
+		if (token) {
+		  const decoded = jwt_decode(token)
+		 this.setState({
+		   nivel:  decoded.nivel
+		 })
+		}
+	 }
+
+	 publicoAtendido(){
+		 return (
+			<li className="nav-item">
+			<Link to="/profile/publicoatendido/lista" className="nav-link pl-0">
+				<FontAwesomeIcon icon={faChild} className='fa-fw' /> 
+				<span className="text-nowrap font-weight-bolder">Público atendido</span>
+			</Link>
+		</li>
+		 )
+	 }
+
+
+
+
 	render () {
 		return (
 			<Router>
@@ -44,12 +81,7 @@ export default class SideBar extends Component {
 										<li id='vamos' class="nav-item active d-none d-md-block d-lg-block d-xl-block">
 											<Link to="/profile/publicoatendido/lista" className="nav-link pl-0"><i class="fa fa-bullseye fa-fw"></i> <h4 class="font-weight-bold">Vamos</h4></Link>
 										</li>
-										<li className="nav-item">
-											<Link to="/profile/publicoatendido/lista" className="nav-link pl-0">
-												<FontAwesomeIcon icon={faChild} className='fa-fw' /> 
-												<span className="text-nowrap font-weight-bolder">Público atendido</span>
-											</Link>
-										</li>
+										{this.state.nivel == 1 ? this.publicoAtendido: null}
 										<li className="nav-item">
 											<Link to="/profile/planejamento" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
 										</li>
