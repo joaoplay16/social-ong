@@ -68,6 +68,9 @@ class CriaPA extends Component {
                                             required
                                             value={this.state.planejamento.atividade}
                                             onChange={this.handleInputChange} />
+
+                                            
+
                                     </div>
                                     </div>
                                 <div className="form-row">
