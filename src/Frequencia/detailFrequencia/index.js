@@ -5,8 +5,6 @@ import createPreview, {downloadPdf, setPdfData} from './templatePdf'
 class DetailFrequencia extends Component {
   constructor() {
     super();
-
-    
     this.state = {
       Turma: {
         nome: ''
@@ -45,22 +43,23 @@ class DetailFrequencia extends Component {
   }
 
   async loadFrequencia() {
-    const { idTurma, data } = this.props.location.state;
-    const response = await api.get(`/Frequencia?turma=${idTurma}&data=${data}`);
-    const { data: frequencia } = response
+    let { idTurma, data } = this.props.location.state;
+    console.log("LOCATION STATE", data, idTurma)
+    data = data.replace(/[/]+/g,"-")
+    const response = await api.get(`/Frequencia/${idTurma}/${data}`);
+    const { docs: frequencia } = response.data
 
     this.setState({
       Frequencia: frequencia
     })
 
-    console.log("FRQ", response)
+    console.log("FRQ", frequencia)
 
     setPdfData(frequencia)
     createPreview()
   }
 
   render() {
-    const { saveFeedBack, Frequencia, Turma, data } = this.state;
     return (
       <scroll>
       <div className="container">
