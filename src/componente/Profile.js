@@ -25,12 +25,22 @@ class Profile extends Component {
      }
   }
 
-  render() {
+  layout(){
+
+    
     return (
-      <>
+      <div>
         <NavBar />
         <SideBar />
-      </>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+    <div>
+      { this.state.nome == ''? null : this.layout() }
+      </div>
     )
   }
 }
