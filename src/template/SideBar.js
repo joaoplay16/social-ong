@@ -35,7 +35,7 @@ export default class SideBar extends Component {
 	constructor() {
 		super()
 		this.state = {
-		  nivel: Number,
+		  nivel: Number
 		}
 	  }
 
@@ -52,12 +52,12 @@ export default class SideBar extends Component {
 
 	 publicoAtendido(){
 		 return (
-			<li className="nav-item">
+	
 			<Link to="/profile/publicoatendido/lista" className="nav-link pl-0">
 				<FontAwesomeIcon icon={faChild} className='fa-fw' /> 
 				<span className="text-nowrap font-weight-bolder">Público atendido</span>
 			</Link>
-		</li>
+		
 		 )
 	 }
 
@@ -81,7 +81,9 @@ export default class SideBar extends Component {
 										<li id='vamos' class="nav-item active d-none d-md-block d-lg-block d-xl-block">
 											<Link to="/profile/publicoatendido/lista" className="nav-link pl-0"><i class="fa fa-bullseye fa-fw"></i> <h4 class="font-weight-bold">Vamos</h4></Link>
 										</li>
-										{this.state.nivel == 1 ? this.publicoAtendido: null}
+										<li className="nav-item">
+										{this.state.nivel == 1 ? this.publicoAtendido() : null}
+										</li>
 										<li className="nav-item">
 											<Link to="/profile/planejamento" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
 										</li>
