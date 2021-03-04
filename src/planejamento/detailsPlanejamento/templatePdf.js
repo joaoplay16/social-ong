@@ -74,7 +74,7 @@ export function setPdfData(planejamento) {
         table: {
           widths: ['*', '*', 100, 100],
           body: [
-            [{text: 'Atividade', bold: true}, {text: 'Rotina', bold: true}, {text: 'Data do planejamento', bold: true}, {text: 'Data da atividade', bold: true}],
+            [{text: 'Atividade', bold: true, fontSize: 14}, {text: 'Rotina', bold: true, fontSize: 14}, {text: 'Data do planejamento', bold: true, fontSize: 14}, {text: 'Data da atividade', bold: true, fontSize: 14}],
             [planejamento.atividade, {text: planejamento.rotina}, {text: new Date(planejamento.dataPlanejamento).toLocaleDateString()}, {text: new Date(planejamento.dataAtividade).toLocaleDateString()}],
           ]
         },
@@ -85,7 +85,7 @@ export function setPdfData(planejamento) {
         table: {
           widths: ['*', '*'],
           body: [
-            [{text: 'Aceitação', bold: true}, {text: 'Observação', bold: true}],
+            [{text: 'Aceitação', bold: true, fontSize: 14}, {text: 'Observação', bold: true, fontSize: 14}],
             [{text: planejamento.aceitacao, italics: true}, {text: planejamento.observacao, italics: true}]
             
           ]

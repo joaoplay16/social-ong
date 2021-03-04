@@ -3,7 +3,7 @@ import api from '../../service/service';//import url base
 import createPreview, {downloadPdf, setPdfData} from './templatePdf'
 
 class DetailFrequencia extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       Turma: {
@@ -53,8 +53,6 @@ class DetailFrequencia extends Component {
       Frequencia: frequencia
     })
 
-    console.log("FRQ", frequencia)
-
     setPdfData(frequencia)
     createPreview()
   }
@@ -63,8 +61,9 @@ class DetailFrequencia extends Component {
     return (
       <scroll>
       <div className="container">
-        <h1>Relatorio</h1>
-        <button onClick={this.handleClick}>Download</button>
+        <h1>Relatorio de frequencia da turma <b>{this.state.Turma.nome}</b></h1>
+        <button className='btn btn-lg btn-outline-success mr-1' onClick={this.handleClick}>Download</button>
+        <button className='btn btn-lg btn-outline-secondary mr-1' onClick={()=> {this.props.history.push('/profile/frequencia')}}>Voltar</button>
         <iframe
           frameborder="0"
           width="100%"
