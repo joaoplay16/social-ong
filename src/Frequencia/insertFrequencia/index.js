@@ -7,7 +7,7 @@ import Tabela from './tabela'
 
 class IndexTurmas extends Component {
 
-    constructor() {
+    constructor(props) {
         super()
         this.state = {
             Turmas: []
@@ -34,7 +34,10 @@ class IndexTurmas extends Component {
         return (
             <>
                 <h2 className="text-center">Nova frequência</h2>
+
                 <Tabela rows={filtro(this.state.Turmas)} />
+                <button className='btn btn-lg btn-outline-secondary mr-1' onClick={()=> {this.props.history.push('/profile/frequencia')}}>Voltar</button>
+
             </>
         )
     }
@@ -47,7 +50,7 @@ function filtro(props) {
         t[i]["nome"] = props[i]["nome"]
         t[i]["frequencia"] = 
             <Link className="btn btn-outline-primary" 
-                  to={`/profile/educacao/cadastro-frequencia/${props[i]._id}`} >Nova frequência</Link>
+                  to={`/profile/nova-frequencia/${props[i]._id}`} >Nova frequência</Link>
     }
     return t;
 }

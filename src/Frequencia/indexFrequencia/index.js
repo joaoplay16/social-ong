@@ -5,7 +5,7 @@ import api from "../../service/service" //import url base
 import Tabela from "./tabela"
 
 class IndexTurmaAluno extends Component {
-  constructor() {
+  constructor(props) {
     super()
     this.state = {
       Frequencia: [],
@@ -28,14 +28,13 @@ class IndexTurmaAluno extends Component {
   render() {
     return (
       <div>
-        <Link to="/profile/educacao/cadastro-frequencia">
+        <Link to="/profile/nova-frequencia">
           <button className="btn-lg btn-outline-primary my-4">
             Nova frequencia
           </button>
         </Link>
-        <Link to="/profile/educacao/relatorio-frequencia">
-          <button className="btn-lg btn-outline-info my-4">Relatorio</button>
-        </Link>
+             
+
         <Tabela rows={filtro(this.state.Frequencia)} />
       </div>
     )
@@ -45,7 +44,7 @@ class IndexTurmaAluno extends Component {
 function filtro(rows) {
   let t = rows.map((f) => {
     let updateFrequencia = {
-      pathname: `/profile/educacao/update-frequencia`,
+      pathname: `/profile/frequencia/update-frequencia`,
       state: {
         idTurma: f.turma._id,
         data: f.data,
@@ -53,7 +52,7 @@ function filtro(rows) {
     }
 
     let detailFrequencia = Object.assign({}, updateFrequencia, {
-      pathname: `/profile/educacao/detalhes-frequencia`,
+      pathname: `/profile/detalhes-frequencia`,
     })
 
     return {

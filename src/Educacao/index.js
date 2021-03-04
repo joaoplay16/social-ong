@@ -27,13 +27,6 @@ const Index = () => (
                     <Route path='/profile/educacao/adicionar-alunos/' component={IndexTurmaAluno} />
                     <Route path='/profile/educacao/update-turma-aluno/:id' component={UpdateTurmaAluno} />
 
-                    <Route path='/profile/educacao/detalhes-frequencia' component={DetalhesFrequencia} />
-                    <Route path='/profile/educacao/frequencia' component={IndexFrequencia} />
-                    <Route exact path='/profile/educacao/cadastro-frequencia' component={CadastroFrequencia} />
-                    <Route path='/profile/educacao/relatorio-frequencia' component={RelatorioFrequencia} />
-                    <Route path='/profile/educacao/cadastro-frequencia/:id' component={InsertFrequencia} />
-                    <Route path='/profile/educacao/update-frequencia' component={UpdateFrequencia} />
-
                     <Route path='/profile/educacao/turmas' component={IndexTurma} />
                     <Route path='/profile/educacao/cadastro-turma' component={InsertTurma} />
                     <Route path='/profile/educacao/detalhes-turma/:id' component={DetailsTurma} />

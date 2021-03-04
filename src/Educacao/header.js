@@ -11,9 +11,9 @@ const Header = () =>
             <li className="nav-item">
                 <Link to="/profile/educacao/adicionar-alunos">  <a className="nav-link botIndex" href="#">Adicionar/Remover alunos </a></Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <Link to="/profile/educacao/frequencia"> <a className="nav-link botIndex" href="#">Frequencia</a></Link>
-            </li>
+            </li> */}
         </ul>
     )
 

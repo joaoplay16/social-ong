@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import api, { API_ADDRESS } from '../../service/service';//import url base
 
 
 class Frequencia extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
@@ -61,6 +62,8 @@ class Frequencia extends Component {
             </div>
           </div>
         </div>
+        <button className='btn btn-lg btn-outline-secondary mr-1' onClick={()=> {this.props.history.push('/profile/nova-frequencia')}}>Voltar</button>
+
       </div>
     )
   }
@@ -92,10 +95,6 @@ class Frequencia extends Component {
       this.setState({
         saveFeedBack: data.ok ? 'Os dados foram salvos com sucesso!' : 'Erro ao salvar'
       })
-      console.log("DADOS",alunosDaTurma);
-      return data.json()
-    }).then(d => {
-        console.log("Erro ao inserir frequencia",d);
     })
   }
 
