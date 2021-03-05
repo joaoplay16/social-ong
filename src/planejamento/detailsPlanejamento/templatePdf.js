@@ -72,10 +72,10 @@ export function setPdfData(planejamento) {
       },
       {
         table: {
-          widths: ['*', '*', 100, 100],
+          widths: ['*', '*'],
           body: [
-            [{text: 'Atividade', bold: true, fontSize: 14}, {text: 'Rotina', bold: true, fontSize: 14}, {text: 'Data do planejamento', bold: true, fontSize: 14}, {text: 'Data da atividade', bold: true, fontSize: 14}],
-            [planejamento.atividade, {text: planejamento.rotina}, {text: new Date(planejamento.dataPlanejamento).toLocaleDateString()}, {text: new Date(planejamento.dataAtividade).toLocaleDateString()}],
+            [ {text: 'Data do planejamento', bold: true, fontSize: 14}, {text: 'Data da atividade', bold: true, fontSize: 14}],
+            [ {text: new Date(planejamento.dataPlanejamento).toLocaleDateString(), bold: false, fontSize: 14}, {text: new Date(planejamento.dataAtividade).toLocaleDateString(), bold: false, fontSize: 14}],
           ]
         },
         
@@ -83,14 +83,20 @@ export function setPdfData(planejamento) {
       },
       {
         table: {
-          widths: ['*', '*'],
+          widths: ['*'],
           body: [
-            [{text: 'Aceitação', bold: true, fontSize: 14}, {text: 'Observação', bold: true, fontSize: 14}],
-            [{text: planejamento.aceitacao, italics: true}, {text: planejamento.observacao, italics: true}]
-            
+            [{text: 'Atividade', bold: true, fontSize: 14}],
+            [{text: planejamento.atividade, bold: false, fontSize: 14}],
+            [{text: 'Rotina', bold: true, fontSize: 14}],
+            [{text: planejamento.rotina, bold: false, fontSize: 14}],
+            [{text: 'Aceitação', bold: true, fontSize: 14}],
+            [{text:  planejamento.aceitacao, bold: false, fontSize: 14}],
+            [{text: 'Observação', bold: true, fontSize: 14}],
+            [{text:  planejamento.observacao, bold: false, fontSize: 14}],
           ]
         }
       },
+      
     ],
     styles: {
       header: {
@@ -100,7 +106,6 @@ export function setPdfData(planejamento) {
         marginBottom: 15
       },
     }
-    
   }
 }
 
