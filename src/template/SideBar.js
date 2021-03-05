@@ -52,16 +52,24 @@ export default class SideBar extends Component {
 		}
 	 }
 
-	 publicoAtendido(){
+	 servidor(){
 		 return (
 	
-			<Link to="/profile/publicoatendido/lista" className="nav-link pl-0">
-				<FontAwesomeIcon icon={faChild} className='fa-fw' /> 
-				<span className="text-nowrap font-weight-bolder">Público atendido</span>
-			</Link>
-		
+			<Link to="/profile/servidor/lista" className="nav-link pl-0">
+				<FontAwesomeIcon icon={faIdCardAlt} className='fa-fw' /> 
+				<span className="font-weight-bolder">Servidor</span>
+				</Link>
 		 )
 	 }
+
+	 volutario(){
+		return ( 
+        <Link to="/profile/voluntario/lista" className="nav-link pl-0">
+			<FontAwesomeIcon icon={faPeopleCarry} className='fa-fw' /> 
+			<span className="font-weight-bolder">Voluntário</span>
+			</Link>
+		)
+	}
 
 
 
@@ -84,16 +92,19 @@ export default class SideBar extends Component {
 											<Link to="/profile/publicoatendido/lista" className="nav-link pl-0"><i class="fa fa-bullseye fa-fw"></i> <h4 class="font-weight-bold">Vamos</h4></Link>
 										</li>
 										<li className="nav-item">
-										{this.state.nivel == 1 ? this.publicoAtendido() : null}
+										<Link to="/profile/publicoatendido/lista" className="nav-link pl-0">
+				                               <FontAwesomeIcon icon={faChild} className='fa-fw' /> 
+				                            <span className="text-nowrap font-weight-bolder">Público atendido</span>
+			                                </Link>
 										</li>
 										<li className="nav-item">
 											<Link to="/profile/planejamento" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
 										</li>
 										<li className="nav-item">
-											<Link to="/profile/servidor/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faIdCardAlt} className='fa-fw' /> <span className="font-weight-bolder">Servidor</span></Link>
+										{this.state.nivel == 1 ? this.servidor() : null}
 										</li>
 										<li className="nav-item">
-											<Link to="/profile/voluntario/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faPeopleCarry} className='fa-fw' /> <span className="font-weight-bolder">Voluntário</span></Link>
+										{this.state.nivel == 1 ? this.volutario() : null}
 										</li>
 										<li className="nav-item">
 											<Link to="/profile/padrinho/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faUserTie} className='fa-fw' /> <span className="font-weight-bolder">Padrinhos</span></Link>
