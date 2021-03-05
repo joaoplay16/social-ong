@@ -25,13 +25,6 @@ class App extends Component {
       
       </BrowserRouter>
 
-
-/*
-<div className="container-fluid">
-  <NavBar/>
-  <SideBar/>
-</div>
-*/
     );
   }
 }
