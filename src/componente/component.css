@@ -1,17 +1,20 @@
+.login{
+    margin-top: 10%;
+}
 
 .fundo{
-    background-image: linear-gradient(to bottom, DarkGreen, LimeGreen);
+   background: linear-gradient(to right, rgb(228, 214, 18), rgb(37, 236, 87));
+   border-radius: 10px;
 }
 
 .imageFundoLogin{
-    background-image: url("../image/associ.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    height: 600px;
-    margin-top: 50px;
+    background: url("../image/vamos.png") 10px 10px/50px 50px no-repeat;
+    padding: 50px 40px;
+    background-position: center;
+    background-size: 50%;
+
 }
 
-
-.PosiLogin{
-    padding-top: 100px;
+.login-field{
+   opacity: 0.73;
 }

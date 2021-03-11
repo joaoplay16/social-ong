@@ -75,7 +75,8 @@ export function setPdfData(planejamento) {
           widths: ['*', '*'],
           body: [
             [ {text: 'Data do planejamento', bold: true, fontSize: 14}, {text: 'Data da atividade', bold: true, fontSize: 14}],
-            [ {text: new Date(planejamento.dataPlanejamento).toLocaleDateString(), bold: false, fontSize: 14}, {text: new Date(planejamento.dataAtividade).toLocaleDateString(), bold: false, fontSize: 14}],
+            [ {text: new Date(planejamento.dataPlanejamento).toLocaleDateString(), bold: false, fontSize: 14},
+               {text: new Date(planejamento.dataAtividade).toLocaleDateString(), bold: false, fontSize: 14}],
           ]
         },
         
