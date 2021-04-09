@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
 import { API_ADDRESS} from '../../service/service'
+import jwt_decode from 'jwt-decode';
 import './index.css'
 
 class CriaPA extends Component {
@@ -10,6 +11,7 @@ class CriaPA extends Component {
 
         this.state = {
             planejamento: {
+                usuario: "",
                 rotina: "",
                 atividade: "",
                 aceitacao: "",
@@ -22,6 +24,16 @@ class CriaPA extends Component {
         }
 
     }
+
+    componentDidMount() {
+		const token = localStorage.usertoken
+		if (token) {        
+		  const decoded = jwt_decode(token)
+		 this.setState({
+		   usuario:  decoded.nome
+		 })
+		}
+	 }
 
     render() {
         const { redirect } = this.state;
