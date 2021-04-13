@@ -56,8 +56,8 @@ export default class SideBar extends Component {
 		 return (
 	
 			<Link to="/profile/servidor/lista" className="nav-link pl-0">
-				<FontAwesomeIcon icon={faIdCardAlt} className='fa-fw' /> 
-				<span className="font-weight-bolder">Servidor</span>
+				<FontAwesomeIcon icon={faIdCardAlt} className='fa-fw' />
+					<span className="font-weight-bolder"> Servidor</span>
 				</Link>
 		 )
 	 }
@@ -66,7 +66,7 @@ export default class SideBar extends Component {
 		return ( 
         <Link to="/profile/voluntario/lista" className="nav-link pl-0">
 			<FontAwesomeIcon icon={faPeopleCarry} className='fa-fw' /> 
-			<span className="font-weight-bolder">Voluntário</span>
+			<span className="font-weight-bolder"> Voluntário</span>
 			</Link>
 		)
 	}
@@ -93,12 +93,12 @@ export default class SideBar extends Component {
 										</li>
 										<li className="nav-item">
 										<Link to="/profile/publicoatendido/lista" className="nav-link pl-0">
-				                               <FontAwesomeIcon icon={faChild} className='fa-fw' /> 
-				                            <span className="text-nowrap font-weight-bolder">Público atendido</span>
-			                                </Link>
+				                  <FontAwesomeIcon icon={faChild} className='fa-fw' /> 
+				                  <span className="text-nowrap font-weight-bolder">Público atendido</span>
+			               </Link>
 										</li>
 										<li className="nav-item">
-											<Link to="/profile/planejamento" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
+											<Link to="/profile/planejamento/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
 										</li>
 										<li className="nav-item">
 										{this.state.nivel == 1 ? this.servidor() : null}

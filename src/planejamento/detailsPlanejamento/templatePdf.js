@@ -4,57 +4,14 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 var docDefinition = {}
 
-
-function createLine() {
-  return {
-    canvas: [
-      {
-        type: 'rect',
-        x: 0,
-        y: 10,
-        w: 520,
-        h: 0,
-        r: 8,
-        lineWidth: 2,
-        lineColor: '#CC5',
-      },
-    ]
-  }
-}
-
-function createSignatureLine() {
-  return {
-    canvas: [
-      {
-        type: 'rect',
-        x: 0,
-        y: 10,
-        w: 320,
-        h: 0,
-        r: 8,
-        lineWidth: 1,
-        lineColor: '#000000',
-      },
-    ],
-    absolutePosition: { y: 799 },
-    alignment: 'center'
-  }
-}
-
-
-function getFooter() {
-  return {
-    
-    columns: [
-      { text: 'Assinatura: ', width: 'auto', margin: [40, 0, 0, 0] },
-      { canvas: createSignatureLine(), width: 'auto' },
-      
-    ]
-  }
-}
-
-
 export function setPdfData(planejamento) {
+
+  const dAtividade = new Date(planejamento.dataAtividade)
+  const dPlanejamento = new Date(planejamento.dataPlanejamento)
+
+  const dataAtividade = `${dAtividade.getUTCDate()}/${dAtividade.getUTCMonth()+1}/${dAtividade.getUTCFullYear()}`
+  const dataPlanejamento = `${dPlanejamento.getUTCDate()}/${dPlanejamento.getUTCMonth()+1}/${dPlanejamento.getUTCFullYear()}`
+
   docDefinition = {
     info: {
       title: 'awesome Document',
@@ -72,15 +29,21 @@ export function setPdfData(planejamento) {
       },
       {
         table: {
+          widths: ['*'],
+          body: [
+            [ {text: 'Servidor', bold: true, fontSize: 14}],
+            [ {text: planejamento.usuario, bold: false, fontSize: 14}],
+          ]
+        },
+      },
+      {
+        table: {
           widths: ['*', '*'],
           body: [
             [ {text: 'Data do planejamento', bold: true, fontSize: 14}, {text: 'Data da atividade', bold: true, fontSize: 14}],
-            [ {text: new Date(planejamento.dataPlanejamento).toLocaleDateString(), bold: false, fontSize: 14},
-               {text: new Date(planejamento.dataAtividade).toLocaleDateString(), bold: false, fontSize: 14}],
+            [ {text: dataPlanejamento, bold: false, fontSize: 14}, {text: dataAtividade, bold: false, fontSize: 14}],
           ]
         },
-        
-        
       },
       {
         table: {

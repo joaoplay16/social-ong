@@ -11,7 +11,7 @@ class CriaPA extends Component {
         this.state = {
             PublicoAtendido: {
                 nome: "",
-                dataNascimento: Date,
+                dataNascimento: new Date().toISOString().substring(0,10),
                 sexo: "",
                 raca: "",
                 altura: 0,

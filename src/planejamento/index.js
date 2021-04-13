@@ -3,7 +3,8 @@ import Header from '../planejamento/header';
 import Insert from '../planejamento/cadastro/insertPlanejamento';
 import Lista from '../planejamento/index/indexPlanejamento';
 import Detalhes from '../planejamento/detailsPlanejamento/detailsPlanejamento';
-import Deletar from '../Padrinho/deletePadrinho/deletePadrinho';
+import Deletar from '../planejamento/deletePlanejamento/index';
+import Update from '../planejamento/updatePlanejamento/index';
 
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -20,10 +21,10 @@ export default class index extends Component {
           <section>
             <Switch>
               <Route path="/profile/planejamento/lista" component={Lista} />
-              <Route path="/profile/planejamento/detalhes/:id" component={Detalhes} />
-
               <Route path="/profile/planejamento/cadastro" component={Insert} />
-              <Route path="/profile/planejamento/relatorio" component={Deletar} />
+              <Route path="/profile/planejamento/detalhes/:id" component={Detalhes} />
+              <Route path="/profile/planejamento/atualizar/:id" component={Update} />
+              <Route path="/profile/planejamento/remover/:id" component={Deletar} />
             </Switch>
           </section>
         </Router>

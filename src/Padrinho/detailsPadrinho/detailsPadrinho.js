@@ -10,7 +10,7 @@ export default class DetailsPadrinho extends Component {
     state = {
         Padrinho: {
             nome: "",
-            dataNascimento: Date,
+            dataNascimento: new Date().toISOString().substring(0,10),
             cnpj: "",
             estado: "",
            cep: 0,
@@ -76,16 +76,10 @@ export default class DetailsPadrinho extends Component {
 
                             <div className="form-group col-sm-2">
                             <label htmlFor="numero">Numero:</label>
-                                <select
+                            <input
                                     className="form-control config-input"
-                                    disabled="true"
-                                    value={Padrinho.numero}>
-                                    <option></option>
-                                    <option>Negro</option>
-                                    <option>Branco</option>
-                                    <option>Parda</option>
-                                    <option>Preto</option>
-                                </select>
+                                   disabled="true"
+                                    value={Padrinho.numero} />
                             </div>
 
                             <div className="form-group col-sm-3">
@@ -124,19 +118,18 @@ export default class DetailsPadrinho extends Component {
                           
                             <div className="form-group col-sm-6">
                             <label htmlFor="email">Email:</label>
-                                <textarea
-                                rows=""
-                                className="form-control"
-                                disabled="true"
-                                value={Padrinho.email}/>
+                            <input
+                                    className="form-control config-input"
+                                   disabled="true"
+                                    value={Padrinho.email} />
                         </div>
 
                         <div className="form-group col-sm-6">
                             <label htmlFor="estado">Estado:</label>
-                                <textarea
-                                rows=""
-                                className="form-control"
-                                 value={Padrinho.estado} />
+                            <input
+                                    className="form-control config-input"
+                                   disabled="true"
+                                    value={Padrinho.email} />
                         </div>
                         
                     </div>

@@ -58,6 +58,7 @@ class CriarDespesa extends Component {
                                             type="Number"
                                             id="valor"
                                             name="valor"
+                                            min="1"
                                             required
                                             onChange={this.handleInputChange} />
                                     </div>
