@@ -10,7 +10,7 @@ class CriaUsuario extends Component {
         this.state = {
             Voluntario: {
                 nome: "",
-                dataNascimento: Date,
+                dataNascimento: new Date().toISOString().substring(0,10),
                 sexo: "",
                 raca: "",
                 titulo: "",
@@ -20,7 +20,7 @@ class CriaUsuario extends Component {
                 naturalidade: "",
                 rg: "",
                 ssp: "",
-                dataExpedicao: Date,
+                dataExpedicao: new Date().toISOString().substring(0,10),
                 cpf: "",
                 estado: "",
                 pai: "",

@@ -6,6 +6,12 @@ const DatatablePage = (props) => {
   const data = {
     columns: [
       {
+        label: 'Servidor',
+        field: 'servidor',
+        sort: 'asc',
+        width: 200
+      },
+      {
         label: 'Atividade',
         field: 'atividade',
         sort: 'asc',
@@ -17,7 +23,7 @@ const DatatablePage = (props) => {
       },
       {
         label: 'Data Planejamento',
-        field: 'Planejamento',
+        field: 'planejamento',
         sort: 'asc',
         width: 200
       },
@@ -30,6 +36,18 @@ const DatatablePage = (props) => {
       {
         label: 'Detalhes',
         field: 'detalhes',
+        sort: 'asc',
+        width: 200
+      },
+      {
+        label: 'Atualizar',
+        field: 'atualizar',
+        sort: 'asc',
+        width: 200
+      },
+      {
+        label: 'Remover',
+        field: 'remover',
         sort: 'asc',
         width: 200
       },

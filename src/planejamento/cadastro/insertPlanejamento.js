@@ -16,7 +16,7 @@ class CriaPA extends Component {
                 atividade: "",
                 aceitacao: "",
                 observacao: "",
-                dataAtividade: Date,
+                dataAtividade: new Date().toISOString().substring(0, 10),
                 dataPlanejamento: new Date()
 
             },
@@ -25,14 +25,24 @@ class CriaPA extends Component {
 
     }
 
-    componentDidMount() {
-		const token = localStorage.usertoken
+
+    setUser(){
+        const token = localStorage.usertoken
 		if (token) {        
 		  const decoded = jwt_decode(token)
-		 this.setState({
-		   usuario:  decoded.nome
-		 })
+          console.log('USER', decoded.nome);
+		 this.setState((prevState) => ({
+		   planejamento: {
+                ...prevState.planejamento,
+                usuario: decoded.nome
+           }
+		 }))
 		}
+    }
+
+    componentDidMount() {
+        this.setUser()
+        console.log("DATA",this.state.planejamento.dataAtividade)
 	 }
 
     render() {
@@ -118,7 +128,7 @@ class CriaPA extends Component {
                                         <label htmlFor="dataAtividade">Data da Atividade:</label>
                                         <input
                                             className="form-control config-input"
-                                            type="Date"
+                                            type="date"
                                             id="dataAtividade"
                                             name="dataAtividade"
                                             required
@@ -150,6 +160,7 @@ class CriaPA extends Component {
             planejamento: { ...prevState.planejamento, [name]: value } //atualizando o estado do campo com o value
         }));
 
+
     };
 
     //metodo para salvar os dados
@@ -167,6 +178,8 @@ class CriaPA extends Component {
                 }
             })
         event.preventDefault();
+        console.log(this.state.planejamento.usuario);
+
     }
 
 }

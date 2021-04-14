@@ -10,7 +10,7 @@ class CriaPadrinho extends Component {
         this.state = {
             Padrinho: {
                 nome: "",
-                dataNascimento: Date,
+                dataNascimento: new Date().toISOString().substring(0,10),
                 cnpj: "",
                 estado: "",
                 cep: 0,
@@ -121,7 +121,6 @@ class CriaPadrinho extends Component {
                                             type="text"
                                             id="cep"
                                             name="cep"
-
                                             value={this.state.Padrinho.cep}
                                             onChange={this.handleInputChange} />
                                     </div>
