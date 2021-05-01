@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from '../../service/service';
 import { Link } from "react-router-dom";
 import '../indexReceita/index.css';
+import { toMoney} from '../../util'
 
 
 
@@ -35,30 +36,23 @@ export default class DetailsReceita extends Component {
                         <div className="form-row">
                             <div className="form-group col-sm-4">
                                 <label htmlFor="receita">Receita</label>
-                                <select
+                                <input
                                     className="form-control config-input"
                                     type="text"
                                     id="receita"
                                     name="receita"
                                     disabled="true"
-
-                                    value={Receita.receita}>
-                                    <option></option>
-                                    <option>options 1</option>
-                                    <option>options 2</option>
-                                    <option>options 3</option>
-                                </select>
+                                    value={Receita.receita}/>
                             </div>
                             <div className="form-group col-sm-3">
                                 <label htmlFor="valor">Valor</label>
                                 <input
                                     className="form-control config-input"
-                                    type="Number"
                                     id="valor"
                                     name="valor"
                                     disabled="true"
 
-                                    value={Receita.valor} />
+                                    value={toMoney(Receita.valor)} />
                             </div>
 
                             <div className="form-group col-sm-6">

@@ -1,5 +1,6 @@
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import { toLocaleDateString } from '../../util'
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 var docDefinition = {}
@@ -36,7 +37,7 @@ function createSignatureLine() {
                 lineColor: '#000000',
             },
         ],
-        absolutePosition: { y: 799 },
+        absolutePosition: { y: 770 },
         alignment: 'center'
     }
 }
@@ -70,7 +71,7 @@ export function setPdfData(pa) {
             {
                 text: [
                     { text: 'Nascido em: ', bold: true },
-                    new Date(pa.dataNascimento).toLocaleDateString().substring(0, 10)
+                    toLocaleDateString(pa.dataNascimento)
                 ],
                 style: ['label'],
             },
@@ -96,7 +97,7 @@ export function setPdfData(pa) {
             { text: 'Escolaridade', style: ['subheader'] },
             {
                 columns: [
-                    { width: 'auto', text: [{ text: 'Escola: ', bold: true }, pa.escola,] },
+                    { width: 'auto', text: [{ text: 'Instituição de ensino: ', bold: true }, pa.escola,] },
                     { width: 'auto', text: [{ text: 'Ano: ', bold: true }, pa.ano,] },
                     { width: 'auto', text: [{ text: 'Ano anterior: ', bold: true }, pa.anoAnterior,] },
                 ],
@@ -114,10 +115,12 @@ export function setPdfData(pa) {
                 style: ['label', 'columnStyle']
             },
             createLine(),
-            { text: 'Resposável', style: ['subheader'] },
+            { text: 'Responsável', style: ['subheader'] },
             {
                 columns: [
                     { width: 'auto', text: [{ text: 'Nome: ', bold: true }, pa.nomeResponsavel,] },
+                    { width: 'auto', text: [{ text: 'RG: ', bold: true }, pa.rgResponsavel,] },
+                    { width: 'auto', text: [{ text: 'CPF: ', bold: true }, pa.cpfResponsavel,] },
                     { width: 'auto', text: [{ text: 'Nis: ', bold: true }, pa.nis,] },
                     { width: 'auto', text: [{ text: 'Função: ', bold: true }, pa.funcao,] }
                 ],
@@ -141,14 +144,15 @@ export function setPdfData(pa) {
                 style: ['label', 'columnStyle']
             },
 
-            createSignatureLine(),
+           
             {
                 text: 'Assinatura do coordenador',
-                absolutePosition: { y: 770 },
+                absolutePosition: { y: 782 },
                 alignment: 'center',
-                fontSize: 15
+                fontSize: 14
 
             },
+            createSignatureLine(),
 
         ],
 

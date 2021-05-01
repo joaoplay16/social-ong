@@ -119,7 +119,7 @@ export default class SideBar extends Component {
 											<Link to="/profile/receita/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faDollarSign} className='fa-fw' /> <span className="font-weight-bolder">Receita</span></Link>
 										</li>
 										<li className="nav-item">
-											<Link to="/profile/educacao/turmas" className="nav-link pl-0"><FontAwesomeIcon icon={faBookOpen} className='fa-fw' /> <span className="font-weight-bolder">Educação</span></Link>
+											<Link to="/profile/educacao/turmas" className="nav-link pl-0"><FontAwesomeIcon icon={faBookOpen} className='fa-fw' /> <span className="font-weight-bolder">Turma</span></Link>
 										</li>
 										<li className="nav-item">
 				                            <Link to="/profile/frequencia" className="nav-link pl-0"><FontAwesomeIcon icon={faListOl} className='fa-fw' /> <span className="font-weight-bolder">Frequência</span></Link>

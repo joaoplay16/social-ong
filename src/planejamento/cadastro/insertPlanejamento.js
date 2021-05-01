@@ -14,8 +14,9 @@ class CriaPA extends Component {
                 usuario: "",
                 rotina: "",
                 atividade: "",
-                aceitacao: "",
+                metodologia: "",
                 observacao: "",
+                objetivo: "",
                 dataAtividade: new Date().toISOString().substring(0, 10),
                 dataPlanejamento: new Date()
 
@@ -94,18 +95,30 @@ class CriaPA extends Component {
                                             
 
                                     </div>
-                                    </div>
-                                <div className="form-row">
                                     <div className="form-group col-sm-12">
-                                        <label htmlFor="aceitacao">Aceitação:</label>
+                                        <label htmlFor="objetivo">Objetivo:</label>
                                         <textarea
                                             rows="4"
                                             className="form-control"
                                             type="text"
-                                            id="aceitacao"
-                                            name="aceitacao"
+                                            id="objetivo"
+                                            name="objetivo"
                                             required
-                                            value={this.state.planejamento.aceitacao}
+                                            value={this.state.planejamento.objetivo}
+                                            onChange={this.handleInputChange} />
+                                    </div>
+                                    </div>
+                                <div className="form-row">
+                                    <div className="form-group col-sm-12">
+                                        <label htmlFor="metodologia">Metodologia:</label>
+                                        <textarea
+                                            rows="4"
+                                            className="form-control"
+                                            type="text"
+                                            id="metodologia"
+                                            name="metodologia"
+                                            required
+                                            value={this.state.planejamento.metodologia}
                                             onChange={this.handleInputChange} />
                                     </div>
                                     </div>

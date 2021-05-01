@@ -4,6 +4,7 @@ import './insert.css';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 import $ from 'jquery';
 import { API_ADDRESS } from '../../service/service';
+import InputCurrency from '../../componente/InputCurrency'
 
 class CriaReceita extends Component {
     constructor() {
@@ -13,7 +14,7 @@ class CriaReceita extends Component {
             Receita: {
                 receita: "",
                 descricao: "",
-                valor: Number,
+                valor: 0,
                 data: new Date().toISOString().substring(0, 10)
             },
             redirect: false,
@@ -39,28 +40,20 @@ class CriaReceita extends Component {
                                 <div className="form-row">
                                     <div className="form-group col-sm-4">
                                         <label htmlFor="receita">Receita</label>
-                                        <select
-                                            className="form-control config-input"
-                                            type="text"
+                                        <input 
+                                          className="form-control config-input"
                                             id="receita"
                                             name="receita"
-                                            onChange={this.handleInputChange} >
-                                            <option></option>
-                                            <option>options 1</option>
-                                            <option>options 2</option>
-                                            <option>options 3</option>
-                                        </select>
+                                            onChange={this.handleInputChange} />
                                     </div>
                                     <div className="form-group col-sm-3">
                                         <label htmlFor="valor">Valor</label>
-                                        <input
-                                            className="form-control config-input"
-                                            type="Number"
+                                        <InputCurrency
                                             id="valor"
                                             name="valor"
-                                            min="1"
                                             required
-                                            onChange={this.handleInputChange} />
+                                         value={this.state.Receita.valor}
+                                            onChange={this.handleMoneyChange} />
                                     </div>
                                     <div className="form-group col-sm-6">
                                         <label htmlFor="descricao">descricao:</label>
@@ -94,16 +87,31 @@ class CriaReceita extends Component {
     }
 
     // Metodo para atualizar o estado do campo
-    handleInputChange = event => {
+    handleInputChange = (event) => {
         const target = event.target;
         const name = target.name;     //pega o nome do camo atravez do target
         const value = target.value;   //pega o valor do camo atravez do target
 
         this.setState(prevState => ({
-            Receita: { ...prevState.Receita, [name]: value } //atualizando o estado do campo com o value
+            Receita: { ...prevState.Receita, 
+                [name]: value
+
+            } //atualizando o estado do campo com o value
         }));
 
+
     };
+
+ 
+    handleMoneyChange = (event, currencyValue, maskedValue) => {
+        const target = event.target;
+        const name = target.name; 
+        this.setState(prevState => ({
+            Receita: { ...prevState.Receita, 
+                [name]: currencyValue
+            } 
+        }));
+    }
 
     //metodo para salvar os dados
     handleSubmit = event => {
