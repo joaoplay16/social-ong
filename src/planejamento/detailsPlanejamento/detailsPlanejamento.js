@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../service/service';
-import { Link } from "react-router-dom";
 import createPreview, {downloadPdf, setPdfData} from './templatePdf'
-
 
 export default class DetailsPlanejamento extends Component {
   

@@ -11,7 +11,8 @@ class UpdatePlanejamento extends Component {
                 usuario: "",
                 rotina: "",
                 atividade: "",
-                aceitacao: "",
+                objetivo: "",
+                metodologia: "",
                 observacao: "",
                 dataAtividade: "",
                 dataPlanejamento: ""
@@ -87,17 +88,31 @@ class UpdatePlanejamento extends Component {
                                             onChange={this.handleInputChange} />
                                     </div>
                                     </div>
-                                <div className="form-row">
+                                    <div className="form-row">
                                     <div className="form-group col-sm-12">
-                                        <label htmlFor="aceitacao">Aceitação:</label>
+                                        <label htmlFor="atividade">Objetivo:</label>
                                         <textarea
                                             rows="4"
                                             className="form-control"
                                             type="text"
-                                            id="aceitacao"
-                                            name="aceitacao"
+                                            id="objetivo"
+                                            name="objetivo"
                                             required
-                                            value={this.state.planejamento.aceitacao}
+                                            value={this.state.planejamento.objetivo}
+                                            onChange={this.handleInputChange} />
+                                    </div>
+                                    </div>
+                                <div className="form-row">
+                                    <div className="form-group col-sm-12">
+                                        <label htmlFor="aceitacao">Metodologia:</label>
+                                        <textarea
+                                            rows="4"
+                                            className="form-control"
+                                            type="text"
+                                            id="metodologia"
+                                            name="metodologia"
+                                            required
+                                            value={this.state.planejamento.metodologia}
                                             onChange={this.handleInputChange} />
                                     </div>
                                     </div>

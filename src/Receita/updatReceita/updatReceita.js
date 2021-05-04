@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './update.css';
 import { Redirect } from "react-router-dom";
 import api, { API_ADDRESS } from '../../service/service';
+import InputCurrency from '../../componente/InputCurrency'
 
 class EditarReceita extends Component {
     constructor(props) {
@@ -40,28 +41,22 @@ class EditarReceita extends Component {
                                 <div className="form-row">
                                     <div className="form-group col-sm-4">
                                         <label htmlFor="receita">Receita</label>
-                                        <select
+                                        <input
                                             className="form-control config-input"
                                             type="text"
                                             id="receita"
                                             name="receita"
                                             onChange={this.handleInputChange}
-                                            value={Receita.receita}>
-                                            <option></option>
-                                            <option>options 1</option>
-                                            <option>options 2</option>
-                                            <option>options 3</option>
-                                        </select>
+                                            value={Receita.receita}/>
                                     </div>
                                     <div className="form-group col-sm-3">
                                         <label htmlFor="valor">Valor</label>
-                                        <input
-                                            className="form-control config-input"
-                                            type="Number"
+                                        <InputCurrency
                                             id="valor"
                                             name="valor"
-                                            onChange={this.handleInputChange}
-                                            value={Receita.valor} />
+                                            required
+                                         value={this.state.Receita.valor}
+                                            onChange={this.handleMoneyChange} />
                                     </div>
 
                                     <div className="form-group col-sm-6">
@@ -109,6 +104,16 @@ class EditarReceita extends Component {
         }));
 
     };
+
+    handleMoneyChange = (event, currencyValue, maskedValue) => {
+        const target = event.target;
+        const name = target.name; 
+        this.setState(prevState => ({
+            Receita: { ...prevState.Receita,
+                 [name]: currencyValue
+                 } 
+        }));
+    }
 
     //metodo para salvar os dados
     handleSubmit = event => {
