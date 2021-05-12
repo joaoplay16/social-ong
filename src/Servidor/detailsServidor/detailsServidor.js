@@ -3,7 +3,7 @@ import {api, STATIC_SERVER_ADDRESS} from '../../service/service';
 import { Link } from "react-router-dom";
 import './detail.css';
 
-
+import {maskCpf, removeSymbols} from '../../util'
 
 
 export default class DetailsServidor extends Component {
@@ -106,7 +106,7 @@ export default class DetailsServidor extends Component {
                                     <input
                                         className="form-control config-input"
                                         disabled="true"
-                                        value={Servidor.cpf} />
+                                        value={maskCpf(Servidor.cpf)} />
 
                                 </div>
 

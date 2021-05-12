@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
 import './insert.css';
 import {API_ADDRESS, STATIC_SERVER_ADDRESS} from '../../service/service'
+import {maskCpf, removeSymbols} from '../../util'
 
 class CriaServidor extends Component {
     constructor() {
@@ -116,10 +117,10 @@ class CriaServidor extends Component {
                                             type="text"
                                             id="rg"
                                             name="rg"
-                                            minLength="13"
-                                            maxLength="13"
+                                            minLength="14"
+                                            maxLength="14"
                                             required
-                                            value={this.state.Servidor.rg}
+                                            value={removeSymbols(this.state.Servidor.rg)}
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
@@ -130,10 +131,10 @@ class CriaServidor extends Component {
                                             type="text"
                                             id="cpf"
                                             name="cpf"
-                                            minLength="11"
-                                            maxLength="11"
+                                            minLength="14"
+                                            maxLength="14"
                                             required
-                                            value={this.state.Servidor.cpf}
+                                            value={maskCpf(this.state.Servidor.cpf)}
                                             onChange={this.handleInputChange} />
 
                                     </div>
@@ -428,7 +429,11 @@ class CriaServidor extends Component {
         event.preventDefault();
         let formDataObj = new FormData();
 
-        let JSONServidor = JSON.stringify(this.state.Servidor)
+        let JSONServidor = JSON.stringify({
+            ...this.state.Servidor,
+            cpf: removeSymbols(this.state.Servidor.cpf),
+            rg: removeSymbols(this.state.Servidor.rg)
+        })
 
         formDataObj.append('servidor', JSONServidor)
         formDataObj.append('arquivoFoto', this.state.arquivoFoto)

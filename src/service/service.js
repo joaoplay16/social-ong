@@ -5,11 +5,11 @@ switch(process.env.REACT_APP_ENVIRONMENT){
     case 'production':
         HOST = "http://api-projetovamos-com.umbler.net"
         break
-    case 'local':
-        HOST = `http://localhost:${PORT}`
+    case 'test':
+        HOST = "http://api-projetotesti-com.umbler.net"
         break 
     default:
-        HOST = "http://api-projetotesti-com.umbler.net"
+        HOST = `http://localhost:${PORT}`
 }
 
 const PATH = "sistema"

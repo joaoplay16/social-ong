@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './update.css';
 import { Redirect } from "react-router-dom";
 import { api, API_ADDRESS, STATIC_SERVER_ADDRESS } from '../../service/service'
+import {maskCpf, removeSymbols} from '../../util'
 
 class EditarServidor extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class EditarServidor extends Component {
             Servidor: {
                 nome: "",
                 foto: "",
-                dataNascimento: Date,
+                dataNascimento: "",
                 sexo: "",
                 raca: "",
                 titulo: 0,
@@ -95,7 +96,7 @@ class EditarServidor extends Component {
                                             id="dataNascimento"
                                             name="dataNascimento"
 
-                                            value={this.state.Servidor.dataNascimento}
+                                            value={this.state.Servidor.dataNascimento.substring(0,10)}
                                             onChange={this.handleInputChange} />
                                     </div>
                                     <div className="form-group col-sm-3">
@@ -129,11 +130,12 @@ class EditarServidor extends Component {
                                         <label htmlFor="rg">RG:</label>
                                         <input
                                             className="form-control config-input"
-                                            type="number"
+                                            type="text"
                                             id="rg"
                                             name="rg"
-
-                                            value={this.state.Servidor.rg}
+                                            minLength="14"
+                                            maxLength="14"
+                                            value={removeSymbols(this.state.Servidor.rg)}
                                             onChange={this.handleInputChange}
                                         />
                                     </div>
@@ -141,11 +143,12 @@ class EditarServidor extends Component {
                                         <label htmlFor="cpf">CPF:</label>
                                         <input
                                             className="form-control config-input"
-                                            type="number"
+                                            type="text"
                                             id="cpf"
                                             name="cpf"
-
-                                            value={this.state.Servidor.cpf}
+                                            minLength="14"
+                                            maxLength="14"
+                                            value={maskCpf(this.state.Servidor.cpf)}
                                             onChange={this.handleInputChange} />
 
                                     </div>
@@ -159,7 +162,7 @@ class EditarServidor extends Component {
                                             id="dataExpedicao"
                                             name="dataExpedicao"
 
-                                            value={this.state.Servidor.dataExpedicao}
+                                            value={this.state.Servidor.dataExpedicao.substring(0,10)}
                                             onChange={this.handleInputChange} />
                                     </div>
                                     <div className="form-group col-sm-3">
@@ -439,7 +442,11 @@ class EditarServidor extends Component {
 
         let formDataObj = new FormData();
 
-        let JSONServidor = JSON.stringify(this.state.Servidor)
+        let JSONServidor = JSON.stringify({
+            ...this.state.Servidor,
+            cpf: removeSymbols(this.state.Servidor.cpf),
+            rg: removeSymbols(this.state.Servidor.rg)
+        })
 
         formDataObj.append('servidor', JSONServidor)
         formDataObj.append('arquivoFoto', this.state.arquivoFoto)

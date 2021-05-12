@@ -55,7 +55,6 @@ class EditarPA extends Component {
             PublicoAtendido: pa,
             fotoPreview: STATIC_SERVER_ADDRESS + pa.foto
         });  // atualizando estado com dados do registro 
-
     }
 
 
@@ -441,7 +440,8 @@ class EditarPA extends Component {
                           <InputCurrency
                             id="rendaFamiliar"
                             name="rendaFamiliar"
-                            value={this.state.PublicoAtendido.rendaFamiliar}
+                            required
+                            value={parseFloat(this.state.PublicoAtendido.rendaFamiliar)}
                             onChange={this.handleMoneyChange}
                           />
                         </div>
@@ -496,7 +496,7 @@ class EditarPA extends Component {
             arquivoFoto: file
         });
 
-        // console.log("URL DE FOTO TEMPORARIA " + fotoUrl)
+        console.log("URL DE FOTO TEMPORARIA " + fotoUrl)
     };
 
     // Metodo para atualizar o estado do campo
