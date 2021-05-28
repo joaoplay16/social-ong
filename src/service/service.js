@@ -1,16 +1,16 @@
 import axios from "axios"
 const PORT =  8088
-let HOST = ""
-switch(process.env.REACT_APP_ENVIRONMENT){
-    case 'production':
-        HOST = "http://api-projetovamos-com.umbler.net"
-        break
-    case 'test':
-        HOST = "http://api-projetotesti-com.umbler.net"
-        break 
-    default:
-        HOST = `http://localhost:${PORT}`
-}
+let HOST ="http://api-projetovamos-com.umbler.net"
+// switch(process.env.REACT_APP_ENVIRONMENT){
+//     case 'production':
+//         HOST = "http://api-projetovamos-com.umbler.net"
+//         break
+//     case 'test':
+//         HOST = "http://api-projetotesti-com.umbler.net"
+//         break 
+//     default:
+//         HOST = `http://localhost:${PORT}`
+// }
 
 const PATH = "sistema"
 export const API_ADDRESS = `${HOST}/${PATH}`
