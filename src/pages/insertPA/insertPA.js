@@ -539,7 +539,7 @@ class CriaPA extends Component {
 
     //remove tudo que não seja anúmero
     let cpf = this.state.PublicoAtendido.cpf.toString().replace(/\D/g, "");
-    let cpfResponsavel = this.state.PublicoAtendido.cpf.toString().replace(/\D/g, "");
+    let cpfResponsavel = this.state.PublicoAtendido.cpfResponsavel.toString().replace(/\D/g, "");
 
     let JSONPublicoAtendido = JSON.stringify({
       ...this.state.PublicoAtendido,
