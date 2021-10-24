@@ -24,6 +24,8 @@ import Despesa from '../Despesa/index';
 import Receita from '../Receita/index';
 import Educacao from '../Educacao/index';
 import Planejamento from '../planejamento/index'
+import PlanejamentoCoordenador from '../planejamentoCoordenador/index'
+
 import jwt_decode from 'jwt-decode';
 import './style.css'
 
@@ -101,6 +103,9 @@ export default class SideBar extends Component {
 											<Link to="/profile/planejamento/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
 										</li>
 										<li className="nav-item">
+											<Link to="/profile/planejamentoCoordenador/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento do Coordenador</span></Link>
+										</li>
+										<li className="nav-item">
 										{this.state.nivel == 1 ? this.servidor() : null}
 										</li>
 										<li className="nav-item">
@@ -137,6 +142,7 @@ export default class SideBar extends Component {
 								<Route path="/profile/despesa" component={Despesa} />
 								<Route path="/profile/receita" component={Receita} />
 								<Route path="/profile/planejamento" component={Planejamento} />
+								<Route path="/profile/planejamentoCoordenador" component={PlanejamentoCoordenador} />
 								<Route path="/profile/educacao" component={Educacao} />
                                <Route path="/profile/frequencia" component={Frequencia} />
 							</Switch>
