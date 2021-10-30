@@ -64,6 +64,16 @@ export default class SideBar extends Component {
 		 )
 	 }
 
+	 planejamentoCoordenador(){
+		return (
+			<Link to="/profile/planejamentoCoordenador/lista" className="nav-link pl-0">
+				<FontAwesomeIcon icon={faEdit} className='fa-fw' /> 
+			      <span className="text-nowrap font-weight-bolder">Planejamento<br></br> Coordenador</span>
+			</Link>
+		)
+	}
+
+
 	 volutario(){
 		return ( 
         <Link to="/profile/voluntario/lista" className="nav-link pl-0">
@@ -103,7 +113,7 @@ export default class SideBar extends Component {
 											<Link to="/profile/planejamento/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento</span></Link>
 										</li>
 										<li className="nav-item">
-											<Link to="/profile/planejamentoCoordenador/lista" className="nav-link pl-0"><FontAwesomeIcon icon={faEdit} className='fa-fw' /> <span className="text-nowrap font-weight-bolder">Planejamento do Coordenador</span></Link>
+										{this.state.nivel == 1 ? this.planejamentoCoordenador() : null}
 										</li>
 										<li className="nav-item">
 										{this.state.nivel == 1 ? this.servidor() : null}
