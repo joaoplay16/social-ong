@@ -21,26 +21,31 @@ export default class App extends React.Component {
      const respons = await api.get('/ListaBranco1'); //buscar dos dados no banco
      this.setState({Branco: respons.data }); // setando o estado de Pu.At. com informações da lista do banco 
 
-     const response = await axios.get('/ListaBranco2'); //buscar dos dados no banco
+     const response = await api.get('/ListaBranco2'); //buscar dos dados no banco
      this.setState({Branco1: response.data }); // setando o estado de Pu.At. com informações da lista do banco 
 
-     const respon = await axios.get('/ListaBranco3'); //buscar dos dados no banco
+     const respon = await api.get('/ListaBranco3'); //buscar dos dados no banco
      this.setState({Branco2: respon.data }); // setando o estado de Pu.At. com informações da lista do banco 
 
-     const respo = await axios.get('/ListaPublicoMasculinototal'); //buscar dos dados no banco
+     const respo = await api.get('/ListaPublicoMasculinototal'); //buscar dos dados no banco
      this.setState({Brancototal: respo.data }); // setando o estado de Pu.At. com informações da lista do banco 
     
     }
 
+    m11(){ 
+      return this.state.Branco.length
+    };
+
   render() {
     const {Branco,Branco1, Branco2} = this.state;
 
-  const m1 = this.state.Branco.length;
-  const m2 = this.state.Branco1.length;
+
+  const m1 = "rosivaldo"
+  const m2 =  this.state.Branco1.length;
   const m3 = this.state.Branco2.length;
   const total = this.state.Brancototal.length;
 
-const label=['9 a 11 Anos', '12 a 14 Anos', '15 a 17 Anos'];
+const label=['9 a 11 Anos ', '12 a 14 Anos', '15 a 17 Anos'];
 const  bgr= [ '#B21F00', '#C9DE00','#2FDE00']
 const  hvbgr = ['#501800','#4B5000','#175000']
  
