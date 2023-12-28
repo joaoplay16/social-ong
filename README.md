@@ -3,7 +3,7 @@
 # Projeto Vamos UI
 
 ## Sobre o projeto
->Interface para consumo da API de dados [Projeto Vamos Api](https://github.com/Projeto-Vamos/social-ong-api) 
+>Interface para consumo da API de dados [Projeto Vamos Api](https://github.com/joaoplay16/social-ong-api) 
 
 Projeto desenvolvido para automacão dos processos e gerenciamento dados da ONG [Associação Vamos ](https://www.associacaovamos.org.br/) para permitir uma maior praticidade na gestão da informação e controle de atividades para o público atendido (crianças e adolescentes). O sistema permite que o gestores possam monitorar o desempenho da organização e manter o controle sobre as ações efetuadas em cada domínio, e assim montar estratégias mais eficientes para apoiar a assistência social. 
 
@@ -17,4 +17,5 @@ Projeto desenvolvido para automacão dos processos e gerenciamento dados da ONG 
 
 ## Contato
 joaoplay16@gmail.com
+
 rosivaldoedeus@gmail.com
